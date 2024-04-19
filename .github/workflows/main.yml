@@ -20,6 +20,6 @@ jobs:
       
         run: |
           # Create the private key file
-          sudo echo -T "$SSH_PRIVATE_KEY" > private_key && sudo chmod 600 private_key
-          sudo ssh -T -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${IP_ADDRESS}
-          sudo git pull
+          echo -T "$SSH_PRIVATE_KEY" > privatekey.pem
+          ssh -T -o StrictHostKeyChecking=no -i privatekey.pem ubuntu@ec2-3-145-119-241.us-east-2.compute.amazonaws.com
+          git pull
