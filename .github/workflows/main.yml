@@ -19,4 +19,5 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            echo "Current directory is: $(pwd)"
+            cd nuxt-docker-mysql
+            git pull
