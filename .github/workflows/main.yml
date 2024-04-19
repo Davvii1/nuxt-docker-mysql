@@ -11,4 +11,5 @@ jobs:
     steps:
       - name: Pull changes from github
         run: |
+          cd nuxt-docker-mysql
           git pull
