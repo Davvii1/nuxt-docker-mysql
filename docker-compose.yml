@@ -4,6 +4,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+    image: nuxt
     container_name: nuxt
     restart: always
     ports:
@@ -14,7 +15,7 @@ services:
     image: nginx:1.23.3
     restart: always
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./nginx:/etc/nginx/conf.d
     depends_on:
@@ -24,7 +25,7 @@ services:
     image: mysql:8.0.36
     restart: always
     ports: 
-      - "5423:3306"
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
