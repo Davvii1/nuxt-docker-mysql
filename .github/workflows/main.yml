@@ -20,5 +20,5 @@ jobs:
       
         run: |
           echo "$SSH_PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -t -i private_key ${USER_NAME}@${IP_ADDRESS}
+          ssh -t -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${IP_ADDRESS}
           git pull
