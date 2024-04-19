@@ -9,10 +9,13 @@ services:
     restart: always
     ports:
       - "3000:3000"
+    depends_on:
+      - mysql
     command: "node .output/server/index.mjs"
 
   nginx:
     image: nginx:1.23.3
+    container_name: nginx
     restart: always
     ports:
       - "80:80"
@@ -24,6 +27,7 @@ services:
   mysql:
     image: mysql:8.0.36
     restart: always
+    container_name: mysql
     ports: 
       - "3306:3306"
     environment:
