@@ -21,6 +21,6 @@ jobs:
         run: |
           # Create the private key file
           echo -T "$SSH_PRIVATE_KEY" > privatekey.pem
-          sudo chmod 660 privatekey.pem
+          sudo chmod 700 privatekey.pem
           ssh -T -o StrictHostKeyChecking=no -i privatekey.pem ubuntu@ec2-3-145-119-241.us-east-2.compute.amazonaws.com
           git pull
