@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Deploy to E2C
 
 on:
   push:
@@ -6,19 +6,9 @@ on:
 
 jobs:
 
-  build:
-
+  update:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2 
-      - name: Build & Deploy
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          IP_ADDRESS: ${{secrets.IP_ADDRESS}}
-          USER_NAME: ${{secrets.USER_NAME}}
-      
+      - name: Pull changes from github
         run: |
-          echo -T "$SSH_PRIVATE_KEY" > private_key
-          sudo chmod 700 private_key
-          ssh -T -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-3-145-119-241.us-east-2.compute.amazonaws.com
+          git pull
