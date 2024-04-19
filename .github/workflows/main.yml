@@ -11,5 +11,4 @@ jobs:
     steps:
       - name: Pull changes from github
         run: |
-          result=$(ls)
-          echo "Command result: $result"
+          echo "Current directory is: $(pwd)"
