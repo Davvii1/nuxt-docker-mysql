@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Pull changes from github
         run: |
-          ls
+          echo ls
